@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function (){
-return redirect()->route('login'); });
+return redirect()->route('login'); 
+
+});
 
 Auth::routes();  //Vendor/laravel/ui/src/AuthRouteMethods.php
 
@@ -48,15 +50,5 @@ Route::get('/usuarios/delete/delete-{id}','UsuarioController@eliminar_usuario');
 Route::get('/limpiar_cache', function () {
     $exitCode = Artisan::call('cache:clear');
 });
-
-
-
-
-
-Route::get('/backup', public function execute(){
-
-Artisan::call("backup:mysql-dump");
-
- });
 
 
